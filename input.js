@@ -17,31 +17,38 @@ function count(){
     return Math.round(((babyObj.weight/6)-babyObj.eaten) / (babyObj.meals-babyObj.mealc));
 }
 
-function getData(id){
-    let input = document.getElementById(id).value;
-    if(input.value == null || input.value == 0){
-        input.className = "wrong";
-        return 0;
-        
+function setWeight(){
+    
+}
+
+function makeRows(){
+    let count = document.getElementById("mealc").value;
+    babyObj.mealc = count;
+    let table = document.getElementById("mealTable");
+    table.innerHTML = "";
+
+    for(let i=0; i<count; i++){
+        let row = document.createElement("tr");
+        let lineC = document.createElement("td");
+        lineC.innerText = (i+1) + ". étkezés";
+        row.appendChild(lineC);
+
+        let lineInput = document.createElement("td");
+        row.appendChild(lineInput);
+
+        let input = document.createElement("input");
+        input.type = "number";
+        input.id = "in-" + i;
+        lineInput.appendChild(input);
+
+        let out = document.createElement("td");
+        out.id = "out-" + i;
+        row.appendChild(out);
+
+        table.appendChild(row);
     }
-    input.className = "";
-    return parseInt( input.value );
 }
 
-function validate(){
-    babyObj.weight=getData("weight");
-    babyObj.eaten=getData("eaten");
-    babyObj.meals=getData("meals");
-    babyObj.mealc=getData("mealc");
-
-
-    console.log(typeof(babyObj.weight));
-    console.log(typeof(babyObj.eaten));
-    console.log(typeof(babyObj.meals));
-    console.log(typeof(babyObj.mealc));
-    let val = count();
-    let out = document.getElementById("out");
-    out.innerText = val;
-
-}
-
+/*function validate(id){
+    let input = document.getElementById(id);
+}*/

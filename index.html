@@ -8,12 +8,24 @@
 
 </head>
 <body>
-    <label for="">weight</label><input type="number" id="weight" oninput="validate()"><br>  
-    <label for="">eaten</label><input type="number" id="eaten" oninput="validate()"><br>
-    <label for="">meals</label><input type="number" id="meals" oninput="validate()"><br>
-    <label for="">mealc</label><input type="number" id="mealc" oninput="validate()"><br>
-    <p id="out"></p>
+    <form>
+        <fieldset>
+            <label for="weight">Baba súlya</label>
+            <input type="number" id="weight" oninput="setWeight()">
+            
+        </fieldset>
+        <fieldset>
+            <label for="mealc">Hányszor étkezik</label>
+            <input type="number" id="mealc" oninput="makeRows()">
+        </fieldset>
+        <fieldset id="meals">
+            <table id="mealTable">
 
+            </table>
+        </fieldset>
+    </form>
+
+    <p id="out"></p>
     <script src="input.js"></script>
 </body>
 </html>
