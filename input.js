@@ -16,3 +16,12 @@ meg kell enni a bónusz mennyiséget
 function count(){
     return ((babyObj.weight/6)-eaten) / (meals-mealc);
 }
+
+function getData(id){
+    return document.getElementById(id).value
+}
+
+babyObj.weight=getData("weight")
+babyObj.eaten=getData("eaten")
+babyObj.meals=getData("meals")
+babyObj.mealc=getData("mealc")
