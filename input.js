@@ -14,17 +14,34 @@ meg kell enni a bónusz mennyiséget
 */
 
 function count(){
-    return ((babyObj.weight/6)-eaten) / (meals-mealc);
+    return Math.round(((babyObj.weight/6)-babyObj.eaten) / (babyObj.meals-babyObj.mealc));
 }
 
 function getData(id){
-    return document.getElementById(id).value;
+    let input = document.getElementById(id).value;
+    if(input.value == null || input.value == 0){
+        input.className = "wrong";
+        return 0;
+        
+    }
+    input.className = "";
+    return parseInt( input.value );
 }
 
-function vaidate(){
+function validate(){
     babyObj.weight=getData("weight");
     babyObj.eaten=getData("eaten");
     babyObj.meals=getData("meals");
     babyObj.mealc=getData("mealc");
+
+
+    console.log(typeof(babyObj.weight));
+    console.log(typeof(babyObj.eaten));
+    console.log(typeof(babyObj.meals));
+    console.log(typeof(babyObj.mealc));
+    let val = count();
+    let out = document.getElementById("out");
+    out.innerText = val;
+
 }
 
