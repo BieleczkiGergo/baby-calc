@@ -18,10 +18,13 @@ function count(){
 }
 
 function getData(id){
-    return document.getElementById(id).value
+    return document.getElementById(id).value;
 }
 
-babyObj.weight=getData("weight")
-babyObj.eaten=getData("eaten")
-babyObj.meals=getData("meals")
-babyObj.mealc=getData("mealc")
+function vaidate(){
+    babyObj.weight=getData("weight");
+    babyObj.eaten=getData("eaten");
+    babyObj.meals=getData("meals");
+    babyObj.mealc=getData("mealc");
+}
+
