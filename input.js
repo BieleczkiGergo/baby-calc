@@ -1,8 +1,8 @@
-babyObj = {
-    weight: 0,
-    eaten: 0,
-    meals: 0,
-    mealc: 0,
+let babyObj = {
+    weight : 0,
+    eaten : 0,
+    meals : [],
+    mealc : 0,
 
 }
 
@@ -26,6 +26,8 @@ function makeRows(){
     babyObj.mealc = count;
     let table = document.getElementById("mealTable");
     table.innerHTML = "";
+    console.log(babyObj);
+    babyObj.meals = Array(count);
 
     for(let i=0; i<count; i++){
         let row = document.createElement("tr");
@@ -39,6 +41,7 @@ function makeRows(){
         let input = document.createElement("input");
         input.type = "number";
         input.id = "in-" + i;
+        input.oninput = validateDecor(input, i);
         lineInput.appendChild(input);
 
         let out = document.createElement("td");
@@ -49,6 +52,30 @@ function makeRows(){
     }
 }
 
+//decorator function for meal input validation
+function validateDecor(element, index){
+    function something(){
+        console.log(element.value + typeof(element.value));
+        try{
+            babyObj.meals[index] = parseInt(element.value);
+
+        }catch{
+            element.className = "invalid";
+
+        }
+    }
+
+    return something;
+}
+
+function showMeals(){
+    console.log("showMeals function called");
+    console.log(babyObj.meals);
+
+}
+
 /*function validate(id){
     let input = document.getElementById(id);
 }*/
+
+
